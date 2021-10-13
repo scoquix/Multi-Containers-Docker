@@ -3,21 +3,21 @@ services:
   - docker
 
 before_install:
-  - docker build -t scoquix/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t rnk487/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true scoquix/react-test npm test
+  - docker run -e CI=true rnk487/react-test npm test
 
 after_success:
-  - docker build -t scoquix/multi-client ./client
-  - docker build -t scoquix/multi-nginx ./nginx
-  - docker build -t scoquix/multi-server ./server
-  - docker build -t scoquix/multi-worker ./worker
+  - docker build -t rnk487/multi-client ./client
+  - docker build -t rnk487/multi-nginx ./nginx
+  - docker build -t rnk487/multi-server ./server
+  - docker build -t rnk487/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Take those images and push them to DockerHub
-  - docker push scoquix/multi-client
-  - docker push scoquix/multi-nginx
-  - docker push scoquix/multi-server
-  - docker push scoquix/multi-worker
+  - docker push rnk487/multi-client
+  - docker push rnk487/multi-nginx
+  - docker push rnk487/multi-server
+  - docker push rnk487/multi-worker
