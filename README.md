@@ -6,6 +6,7 @@ TravisCI uses Docker to build images and publish them on DockerHub.
 
 ## Motivation
 Due to the images are available on DockerHub it very easy to change the vendor between AWS, Azure and others.
+
 Platform independence is very useful for growing applications which might increase in costs of maintanace.
 
 ## AWS Environment Details
